@@ -34,11 +34,10 @@ var AlteraTituloComp = Vue.extend({
 
 var AddItemComp = Vue.extend({ 
   data: function () { 
-    return data; 
+    return data;
   }, 
   methods: { 
     addLivro: function () { 
-        var novoItem = [];
         axios.post('http://localhost/vue/intro/ajax.php', {
             action: 'teste',
             titulo: this.novoLivro.trim(),
@@ -46,17 +45,15 @@ var AddItemComp = Vue.extend({
           })
             .then(function (r) {
                 // console.log(r);
-                data.cabecalho  = r.data.cabecalho;
-                novoItem = {
-                    titulo:     r.data.titulo,
-                    autor:      r.data.autor,
-                    checked:    false
-                };
+				data.cabecalho  = r.data.cabecalho;
+				data.livros.push({
+					titulo: 	r.data.titulo,
+					autor: 		r.data.autor,
+					checked: 	false
+				}); 
             })
             .catch(function (r) { console.log(r) })
         ;
-            console.log(novoItem);
-        // this.livros.push(this.novoItem);
 
         this.novoLivro = ""; 
         this.novoAutor = ""; 
