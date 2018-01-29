@@ -10,17 +10,17 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/vue/intro/rotas/router-app-master/dist/',
       name: 'Hello',
       component: Hello
     },
     {
-      path: '/about',
+      path: '/vue/intro/rotas/router-app-master/dist/about',
       name: 'About',
       component: About
     },
     {
-      path: '/coins/:id',
+      path: '/vue/intro/rotas/router-app-master/dist/coins/:id',
       name: 'Coins',
       component: Coins
     }
